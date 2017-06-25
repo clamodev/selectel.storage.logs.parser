@@ -1,0 +1,44 @@
+{
+	"name": "storagelogs_parser",
+	"version": "1.0.0",
+	"version_bit": "Release",
+	"description": "Selectel StorageLogs Parser",
+	"productName": "StorageLogs Parser",
+	"website": "creatic.pw",
+	"homepage": "https://creatic.pw",
+	"build": {
+		"appId": "com.squirrel.selectel.storagelogsparser",
+		"mac.category": "public.app-category.entertainment",
+		"asar": true,
+		"electronVersion": "1.7.3",
+		"productName": "Selectel StorageLogs Parser",
+		"files": ["**\/*", "!extra${/*}", "!build${/*}", "!node_modules${/*}"],
+		"extraFiles": "extra/${os}/*",
+		"win": {
+			"msi": false,
+			"iconUrl": "https://cdn.creatic.pw/ico/selectel.ico",
+			"target": ["zip"],
+			"icon": "../build.ico"
+		},
+		"nsis": {
+			"oneClick": false
+		},
+		"linux": {
+			"target": ["zip"],
+			"synopsis": "Selectel StorageLogs Parser for Linux",
+			"depends": ["libappindicator1", "libnotify-bin"],
+			"compression": "xz"
+		},
+		"mac": {
+			"icon": "../build.icns"
+		}
+	},
+	"directories": {
+		"output": "../../../dist"
+	},
+	"author": {
+		"email": "nebel@creatic.pw",
+		"name": "Valeriy Evstafev"
+	},
+	"main": "main.js"
+}
