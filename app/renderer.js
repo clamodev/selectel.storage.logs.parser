@@ -403,8 +403,12 @@ holder.ondrop = function (e) {
 							timestamp = strtotime(_date.replace('_', ' '));
 						} catch(e) {}
 						
-						var __path = (parsed.path + '');
+						var __path = (parsed.path + '').trim();
 						if(__path.indexOf('/') >= 0) {
+							if(__path.indexOf('api.selcdn.ru') !== 0)
+								__path = __path.split('?').shift();
+
+							/*
 							['.gz', '.json', '.css', '.png', '.exe', '.zip', '.jpg', '.js', '.deb', '.woff2', '.ttf', '.TTF', '.woff'].forEach(function(ext) {
 								if(__path.indexOf(ext) >= 0 &&
 									( (__path.indexOf('.json') === -1 && ext === '.js') || (ext !== '.js') ) &&
@@ -413,6 +417,7 @@ holder.ondrop = function (e) {
 									__path = __path.split(ext).shift() + ext;
 								}
 							});
+							*/
 
 							if(!(__path in files_top)) {
 								files_top[__path] = {
